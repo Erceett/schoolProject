@@ -2,16 +2,15 @@ package Model;
 
 public class ogrenciUser {
     private int id;
-    private String adSoyad, sinif, sube, ogrenciNo, kullaniciAdi, sifre;
+    private String adSoyad, sinif, sube, ogrenciNo, sifre;
     
-    public ogrenciUser(int id, String adSoyad, String sinif, String sube, String ogrenciNo, String kullaniciAdi, String sifre)
+    public ogrenciUser(int id, String adSoyad, String sinif, String sube, String ogrenciNo, String sifre)
     {
         this.id = id;
         this.adSoyad = adSoyad;
         this.sinif = sinif;
         this.sube = sube;
         this.ogrenciNo = ogrenciNo;
-        this.kullaniciAdi = kullaniciAdi;
         this.sifre = sifre;
     }
     
@@ -47,12 +46,7 @@ public class ogrenciUser {
     public void setogrenciNo(String ogrenciNo){
         this.ogrenciNo = ogrenciNo;
     }
-    public String getkullaniciAdi(){
-        return kullaniciAdi;
-    }
-    public void setkullaniciAdi(String kullaniciAdi){
-        this.kullaniciAdi = kullaniciAdi;
-    }
+
     public String getSifre(){
         return sifre;
     }

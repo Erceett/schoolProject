@@ -203,10 +203,10 @@ public class adminOgrt extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel1))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1)))
                 .addGap(28, 28, 28)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -223,6 +223,20 @@ public class adminOgrt extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void updateOgrtModel() throws SQLException {//TABLOYU GÜNCELLEDİK ÖĞGRNCİ TABLOSUNDA DA KULLANABİLİRSİN
+        DefaultTableModel clearModel = (DefaultTableModel) jTable2.getModel();
+        clearModel.setRowCount(0);
+        admin admin = new admin();
+        for (int i = 0; i < admin.getOgrtList().size(); i++) {
+            ogrtData[0] = admin.getOgrtList().get(i).getId();
+            ogrtData[1] = admin.getOgrtList().get(i).getadSoyad();
+            ogrtData[2] = admin.getOgrtList().get(i).getBrans();
+            ogrtData[3] = admin.getOgrtList().get(i).getkullaniciAdi();
+            ogrtData[4] = admin.getOgrtList().get(i).getSifre();
+            ogrtModel.addRow(ogrtData);
+        }
+    } 
+    
     private void ogrtEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrtEkleActionPerformed
         // BRANŞ KISMINI COMBOBOX OLARAK TEKRAR DENE COMBOBOX.İSSELECTED I DEĞİŞKENDE TUTUP SQL SORGUSUNA YAZMAYI DENE
         // KULLANICI ADI KISMI UNIQUE OLMALI YOKSA SİLERKEN SIKINTI ÇIKAR
@@ -248,6 +262,7 @@ public class adminOgrt extends javax.swing.JFrame {
             stmt.setString(5, "ogrt");
             stmt.executeUpdate();
             key = 1;
+            updateOgrtModel();
             
         } catch (SQLException e) {
             e.printStackTrace();
@@ -260,9 +275,7 @@ public class adminOgrt extends javax.swing.JFrame {
                 sifre.setText(null) ;
             }
         
-        }
-        
-        
+        }     
     }//GEN-LAST:event_ogrtEkleActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -277,6 +290,7 @@ public class adminOgrt extends javax.swing.JFrame {
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, deleteId);
             statement.executeUpdate();
+            updateOgrtModel();
             JOptionPane.showMessageDialog(null,"Silme işlemi başarılı");
         } catch (SQLException ex) {
         }

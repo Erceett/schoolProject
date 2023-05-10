@@ -107,7 +107,7 @@ public class collegeIndex extends javax.swing.JFrame {
         jLabel3.setText("Şifre");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setText("Kullanıcı Adı");
+        jLabel4.setText("Öğrenci No");
 
         ogrcAd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,7 +266,7 @@ public class collegeIndex extends javax.swing.JFrame {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("SELECT * FROM ogrencitablosu");
                 while(rs.next()){
-                    if (ogrcAd.getText().equals(rs.getString("kullaniciAdi")) && ogrcPassword.getText().equals(rs.getString("sifre"))) {
+                    if (ogrcAd.getText().equals(rs.getString("ogrenciNo")) && ogrcPassword.getText().equals(rs.getString("sifre"))) {
                         isLogIn = 1;
                         ogrenci frame = new ogrenci();
                         frame.setVisible(true);

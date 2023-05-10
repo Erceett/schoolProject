@@ -102,9 +102,15 @@ public class adminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_subelendirmeActionPerformed
 
     private void ogrcListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrcListActionPerformed
-        adminOgrc frame = new adminOgrc();
-        frame.setVisible(true);
-        frame.setSize(825,435);
+        adminOgrc frame;
+        try {
+            frame = new adminOgrc();
+            frame.setVisible(true);
+            frame.setSize(825,435);
+        } catch (SQLException ex) {
+
+        }
+        
     }//GEN-LAST:event_ogrcListActionPerformed
 
     private void ogrtListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrtListActionPerformed
