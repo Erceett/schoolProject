@@ -1,16 +1,17 @@
 package Model;
 
 public class ogrenciUser {
-    private int id;
-    private String adSoyad, sinif, sube, ogrenciNo, sifre;
+    private int id, ozurlu, ozursuz;
+    private String adSoyad, sinif, sube,  sifre;
     
-    public ogrenciUser(int id, String adSoyad, String sinif, String sube, String ogrenciNo, String sifre)
+    public ogrenciUser(int id, int ozurlu, int ozursuz, String adSoyad, String sinif, String sube, String sifre)
     {
         this.id = id;
+        this.ozurlu = ozurlu;
+        this.ozursuz = ozursuz;
         this.adSoyad = adSoyad;
         this.sinif = sinif;
         this.sube = sube;
-        this.ogrenciNo = ogrenciNo;
         this.sifre = sifre;
     }
     
@@ -21,6 +22,18 @@ public class ogrenciUser {
     }
     public void setId(int id){
         this.id = id;
+    }
+    public int getOzurlu(){
+        return ozurlu;
+    }
+    public void setOzurlu(int ozurlu){
+        this.ozurlu = ozurlu;
+    }
+    public int getOzursuz(){
+        return ozursuz;
+    }
+    public void setOzursuz(int ozursuz){
+        this.ozursuz = ozursuz;
     }
     public String getadSoyad(){
         return adSoyad;
@@ -40,13 +53,6 @@ public class ogrenciUser {
     public void setSube(String sube){
         this.sube = sube;
     }
-    public String getogrenciNo(){
-        return ogrenciNo;
-    }
-    public void setogrenciNo(String ogrenciNo){
-        this.ogrenciNo = ogrenciNo;
-    }
-
     public String getSifre(){
         return sifre;
     }

@@ -9,6 +9,7 @@ public class admin  extends ogretmenUser{
     Connection con = conn.connectDb();
     Statement st = null;
     ResultSet rs = null;
+    PreparedStatement prepareStatement = null;
     
     public admin(int id, String adSoyad, String brans, String kullaniciAdi, String sifre){
         super(id, adSoyad, brans, kullaniciAdi, sifre);
@@ -39,12 +40,63 @@ public class admin  extends ogretmenUser{
         st = con.createStatement();
         rs = st.executeQuery("SELECT * FROM ogrencitablosu");
         while(rs.next()){
-            obj = new ogrenciUser(rs.getInt("id"), rs.getString("adSoyad"), rs.getString("sinif"), rs.getString("sube"), rs.getString("ogrenciNo"), rs.getString("sifre"));
+            obj = new ogrenciUser(rs.getInt("id"),rs.getInt("ozurlu"), rs.getInt("ozursuz"), rs.getString("adSoyad"), rs.getString("sinif"), rs.getString("sube"), rs.getString("sifre"));
             list.add(obj);
         }
         }catch(SQLException e){
             e.printStackTrace();
         }
         return list;
+    }
+    
+    public boolean updateOgrc(String adSoyad, String sinif, String sube, int ozurlu, int ozursuz){
+        String query = "UPDATE ogrencitablosu SET adSoyad = ?, sinif = ?, sube = ?, ozurlu = ?, ozursuz = ? WHERE id = ?";
+        boolean key = false;
+        try{
+            st = con.createStatement();
+            prepareStatement = con.prepareStatement(query);
+            prepareStatement.setString(1, adSoyad);
+            prepareStatement.setString(2, sinif);
+            prepareStatement.setString(3, sube);
+            prepareStatement.setInt(4, ozurlu);
+            prepareStatement.setInt(5, ozursuz);
+            prepareStatement.setInt(6, id);
+            
+            prepareStatement.executeUpdate();
+            
+            key = true;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        };
+        if (key) {
+            return true;
+        }
+        else return false;
+        
+    }
+    
+    public boolean updateDevam(int ozurlu, int ozursuz, int id){
+        String query = "UPDATE ogrencitablosu SET ozurlu = ?, ozursuz = ? WHERE id = ?";
+        boolean key = false;
+        try{
+            st = con.createStatement();
+            prepareStatement = con.prepareStatement(query);
+            prepareStatement.setInt(1, ozurlu);
+            prepareStatement.setInt(2, ozursuz);
+            prepareStatement.setInt(3, id);
+            
+            prepareStatement.executeUpdate();
+            
+            key = true;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        };
+        if (key) {
+            return true;
+        }
+        else return false;
+        
     }
 }

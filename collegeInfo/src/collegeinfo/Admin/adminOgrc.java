@@ -20,23 +20,21 @@ public class adminOgrc extends javax.swing.JFrame {
     public adminOgrc() throws SQLException{
         admin admin = new admin();
         ogrcModel = new DefaultTableModel();
-        Object[] colOgrcName = new Object[6];
-        colOgrcName[0] = "id";
+        Object[] colOgrcName = new Object[5];
+        colOgrcName[0] = "Numara";
         colOgrcName[1] = "Ad Soyad";
         colOgrcName[2] = "Sınıf";
         colOgrcName[3] = "Şube";
-        colOgrcName[4] = "Öğrenci No";
-        colOgrcName[5] = "Şifre";
+        colOgrcName[4] = "Şifre";
         ogrcModel.setColumnIdentifiers(colOgrcName);
-        ogrcData = new Object[6];
+        ogrcData = new Object[5];
         
         for (int i = 0; i < admin.getOgrcList().size(); i++) {
             ogrcData[0] = admin.getOgrcList().get(i).getId();
             ogrcData[1] = admin.getOgrcList().get(i).getadSoyad();
             ogrcData[2] = admin.getOgrcList().get(i).getSinif();
             ogrcData[3] = admin.getOgrcList().get(i).getSube();
-            ogrcData[4] = admin.getOgrcList().get(i).getogrenciNo();
-            ogrcData[5] = admin.getOgrcList().get(i).getSifre();
+            ogrcData[4] = admin.getOgrcList().get(i).getSifre();
             ogrcModel.addRow(ogrcData);
         }
                 initComponents();
@@ -51,8 +49,7 @@ public class adminOgrc extends javax.swing.JFrame {
             ogrcData[1] = admin.getOgrcList().get(i).getadSoyad();
             ogrcData[2] = admin.getOgrcList().get(i).getSinif();
             ogrcData[3] = admin.getOgrcList().get(i).getSube();
-            ogrcData[4] = admin.getOgrcList().get(i).getogrenciNo();
-            ogrcData[5] = admin.getOgrcList().get(i).getSifre();
+            ogrcData[4] = admin.getOgrcList().get(i).getSifre();
             ogrcModel.addRow(ogrcData);
         }
     }
@@ -69,12 +66,10 @@ public class adminOgrc extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         ogrcAd = new javax.swing.JTextField();
         ogrcSinif = new javax.swing.JTextField();
         ogrcSube = new javax.swing.JTextField();
-        ogrcNo = new javax.swing.JTextField();
         ogrcSifre = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -109,9 +104,6 @@ public class adminOgrc extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Sınıf*");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Öğrenci No*");
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Şifre*");
 
@@ -120,8 +112,6 @@ public class adminOgrc extends javax.swing.JFrame {
         ogrcSinif.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         ogrcSube.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        ogrcNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         ogrcSifre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -155,15 +145,11 @@ public class adminOgrc extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(ogrcSube, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(ogrcNo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(ogrcSifre, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(39, 39, 39)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ogrcSifre, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(255, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -187,13 +173,10 @@ public class adminOgrc extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addComponent(ogrcSube, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel5))
-                    .addComponent(ogrcNo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(ogrcSifre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(202, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(ogrcSifre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Öğrenci Ekle", jPanel1);
@@ -283,7 +266,7 @@ public class adminOgrc extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int key = 0;
         
-        if (ogrcAd.getText().length() == 0 ||  ogrcSinif.getText().length() == 0 ||ogrcSube.getText().length() == 0 ||ogrcNo.getText().length() == 0 || ogrcSifre.getText().length() == 0) {
+        if (ogrcAd.getText().length() == 0 ||  ogrcSinif.getText().length() == 0 ||ogrcSube.getText().length() == 0 || ogrcSifre.getText().length() == 0) {
             JOptionPane.showMessageDialog(null,"Lütfen '*' bulunan alanları doldurunuz ","Hata",JOptionPane.WARNING_MESSAGE);
         }
         else{
@@ -291,18 +274,16 @@ public class adminOgrc extends javax.swing.JFrame {
             ogrenci.setadSoyad(ogrcAd.getText());
             ogrenci.setSinif(ogrcSinif.getText());
             ogrenci.setSube(ogrcSube.getText());
-            ogrenci.setogrenciNo(ogrcNo.getText());
             ogrenci.setSifre(ogrcSifre.getText());
             
             try{
                 Connection con = conn.connectDb();
-                String sql = "INSERT INTO ogrencitablosu" + "(adSoyad, sinif, sube, ogrenciNo, sifre) VALUES" + "(?,?,?,?,?)";
+                String sql = "INSERT INTO ogrencitablosu" + "(adSoyad, sinif, sube,  sifre) VALUES" + "(?,?,?,?)";
                 PreparedStatement stmt = con.prepareStatement(sql);
                 stmt.setString(1,ogrenci.getadSoyad());
                 stmt.setString(2, ogrenci.getSinif());
                 stmt.setString(3, ogrenci.getSube());
-                stmt.setString(4, ogrenci.getogrenciNo());
-                stmt.setString(5,ogrenci.getSifre());
+                stmt.setString(4,ogrenci.getSifre());
                 stmt.executeUpdate();
                 key = 1;
                 updateOgrcModel();
@@ -314,7 +295,6 @@ public class adminOgrc extends javax.swing.JFrame {
                 ogrcAd.setText(null);
                 ogrcSinif.setText(null);
                 ogrcSube.setText(null);
-                ogrcNo.setText(null);
                 ogrcSifre.setText(null);
             }
         }
@@ -332,6 +312,7 @@ public class adminOgrc extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Silme işlemi başarılı");
         } catch (SQLException ex) {
         }
+        sil.setText(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {
@@ -355,7 +336,6 @@ public class adminOgrc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -365,7 +345,6 @@ public class adminOgrc extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField ogrcAd;
-    private javax.swing.JTextField ogrcNo;
     private javax.swing.JTextField ogrcSifre;
     private javax.swing.JTextField ogrcSinif;
     private javax.swing.JTextField ogrcSube;

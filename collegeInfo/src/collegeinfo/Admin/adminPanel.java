@@ -21,6 +21,7 @@ public class adminPanel extends javax.swing.JFrame {
         ogrtList = new javax.swing.JButton();
         ogrcList = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        ogrcList1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(825, 287));
@@ -56,18 +57,17 @@ public class adminPanel extends javax.swing.JFrame {
             }
         });
 
+        ogrcList1.setText("DEVAMSIZLIK İŞLEMLERİ");
+        ogrcList1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ogrcList1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(ogrtList)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(ogrcList, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103)
-                .addComponent(subelendirme)
-                .addGap(62, 62, 62))
             .addGroup(layout.createSequentialGroup()
                 .addGap(252, 252, 252)
                 .addComponent(jLabel3)
@@ -76,6 +76,16 @@ public class adminPanel extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ogrtList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(subelendirme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ogrcList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ogrcList1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                .addGap(322, 322, 322))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,9 +95,12 @@ public class adminPanel extends javax.swing.JFrame {
                 .addGap(98, 98, 98)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ogrcList)
-                    .addComponent(subelendirme)
                     .addComponent(ogrtList))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(subelendirme)
+                    .addComponent(ogrcList1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -130,6 +143,18 @@ public class adminPanel extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ogrcList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrcList1ActionPerformed
+        adminDay frame;
+        try {
+            frame = new adminDay();
+            frame.setVisible(true);
+            frame.setSize(825,435);
+        } catch (SQLException ex) {
+           
+        }
+        
+    }//GEN-LAST:event_ogrcList1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -169,6 +194,7 @@ public class adminPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton ogrcList;
+    private javax.swing.JButton ogrcList1;
     private javax.swing.JButton ogrtList;
     private javax.swing.JButton subelendirme;
     // End of variables declaration//GEN-END:variables

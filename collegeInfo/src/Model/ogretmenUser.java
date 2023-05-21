@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class ogretmenUser 
 {
-    private int id;
+    int id;
     private String adSoyad, brans, kullaniciAdi, sifre;
     
     dbConnection conn = new dbConnection();

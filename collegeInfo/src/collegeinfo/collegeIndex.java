@@ -255,7 +255,8 @@ public class collegeIndex extends javax.swing.JFrame {
 
     private void ogrcLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrcLoginActionPerformed
         //kullanıcı girişi yapıldı.
-        
+        String ad = ogrcAd.getText();
+        int id = Integer.parseInt(ad);
         int isLogIn = 0; // girişin yapılıp yapılmadığınının kontrolü
         if (ogrcAd.getText().length() == 0 || ogrcPassword.getText().length() == 0) {
             JOptionPane.showMessageDialog(null,"Kullanıcı adı veya şifre boş olamaz","Hata",JOptionPane.WARNING_MESSAGE); 
@@ -266,7 +267,7 @@ public class collegeIndex extends javax.swing.JFrame {
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("SELECT * FROM ogrencitablosu");
                 while(rs.next()){
-                    if (ogrcAd.getText().equals(rs.getString("ogrenciNo")) && ogrcPassword.getText().equals(rs.getString("sifre"))) {
+                    if (id == rs.getInt("id") && ogrcPassword.getText().equals(rs.getString("sifre"))) {
                         isLogIn = 1;
                         ogrenci frame = new ogrenci();
                         frame.setVisible(true);
