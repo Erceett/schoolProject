@@ -12,6 +12,7 @@ public class collegeIndex extends javax.swing.JFrame {
     private dbConnection conn = new dbConnection();
     
     public static int adminId = 0;
+    public static int ogretmenId = 0;
     
     public collegeIndex() {
         initComponents();
@@ -301,6 +302,7 @@ public class collegeIndex extends javax.swing.JFrame {
                 while(rs.next()){
                     if (ogrtAd.getText().equals(rs.getString("kullaniciAdi")) && ogrtPassword.getText().equals(rs.getString("sifre")) && "ogrt".equals(rs.getString("tur"))) {
                         isLogIn = 1;
+                        ogretmenId = rs.getInt("id");
                         ogretmen frame = new ogretmen();
                         frame.setVisible(true);
                         frame.setSize(825,435);  

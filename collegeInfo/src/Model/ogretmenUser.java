@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import collegeinfo.Helper.*;
 import java.sql.*;
 
+
 public class ogretmenUser 
 {
     int id;
@@ -52,7 +53,7 @@ public class ogretmenUser
     }
     public void setSifre(String sifre){
         this.sifre = sifre;
-    }
+    }    
 }
 
 

@@ -33,6 +33,24 @@ public class admin  extends ogretmenUser{
         return list;
     }
     
+    public ArrayList<ogretmenSube> getOgrtSubeList() throws SQLException{
+        ArrayList <ogretmenSube> list = new ArrayList<>();
+        ogretmenSube obj;
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * FROM subeler");
+            while(rs.next()){
+                obj = new ogretmenSube(rs.getInt("id"), rs.getInt("ogretmenID"),rs.getString("adsoyad"), rs.getString("sinif"), rs.getString("sube"));
+                list.add(obj);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    
+    
     public ArrayList<ogrenciUser> getOgrcList()throws SQLException{
         ArrayList<ogrenciUser> list = new ArrayList<>();
         ogrenciUser obj;
