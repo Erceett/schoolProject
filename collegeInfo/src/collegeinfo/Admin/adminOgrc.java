@@ -284,9 +284,9 @@ public class adminOgrc extends javax.swing.JFrame {
                 stmt.setString(2, ogrenci.getSinif());
                 stmt.setString(3, ogrenci.getSube());
                 stmt.setString(4,ogrenci.getSifre());
-                stmt.executeUpdate();
+                stmt.executeUpdate();  
                 key = 1;
-                updateOgrcModel();
+                updateOgrcModel();       
             }catch(SQLException e){
                 e.printStackTrace();
             }

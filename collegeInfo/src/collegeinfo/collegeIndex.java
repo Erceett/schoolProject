@@ -3,6 +3,7 @@ import collegeinfo.Admin.*;
 import Model.*;
 import java.sql.*;
 import collegeinfo.Helper.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -13,10 +14,13 @@ public class collegeIndex extends javax.swing.JFrame {
     
     public static int adminId = 0;
     public static int ogretmenId = 0;
+    public static String brans = null;
     
     public collegeIndex() {
         initComponents();
     }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -303,6 +307,7 @@ public class collegeIndex extends javax.swing.JFrame {
                     if (ogrtAd.getText().equals(rs.getString("kullaniciAdi")) && ogrtPassword.getText().equals(rs.getString("sifre")) && "ogrt".equals(rs.getString("tur"))) {
                         isLogIn = 1;
                         ogretmenId = rs.getInt("id");
+                        brans = rs.getString("brans");
                         ogretmen frame = new ogretmen();
                         frame.setVisible(true);
                         frame.setSize(825,435);  

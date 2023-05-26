@@ -109,9 +109,14 @@ public class adminPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void subelendirmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subelendirmeActionPerformed
-        adminSiniflandirma frame = new adminSiniflandirma();
-        frame.setVisible(true);
+        adminSiniflandirma frame;
+        try {
+            frame = new adminSiniflandirma();
+            frame.setVisible(true);
         frame.setSize(825,435);
+        } catch (SQLException ex) {
+        }
+        
     }//GEN-LAST:event_subelendirmeActionPerformed
 
     private void ogrcListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrcListActionPerformed

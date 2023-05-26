@@ -45,13 +45,16 @@ public class adminDay extends javax.swing.JFrame {
             
             try(ResultSet rs = statement.executeQuery()){
                 while(rs.next()){
-                    obj = new ogrenciUser(rs.getInt("id"),rs.getInt("ozurlu"), rs.getInt("ozursuz"), rs.getString("adSoyad"), rs.getString("sinif"), rs.getString("sube"), rs.getString("sifre"));
-                    list.add(obj);
+                    obj = new ogrenciUser(rs.getInt("id"),rs.getInt("ozurlu"), rs.getInt("ozursuz"), rs.getString("adSoyad"), rs.getString("sinif"), rs.getString("sube"), rs.getString("sifre"),
+            rs.getInt("turk1"),rs.getInt("turk2"),rs.getInt("mat1"),rs.getInt("mat2"),rs.getInt("fen1"),rs.getInt("fen2"),rs.getInt("sos1"),rs.getInt("sos2")
+            ,rs.getInt("ing1"),rs.getInt("ing2"));list.add(obj);
                 }
             }
         }
         return list;
     }
+    
+    
     
     public void updateOgrcModel() throws SQLException{
         DefaultTableModel clearModel = (DefaultTableModel) jTable1.getModel();

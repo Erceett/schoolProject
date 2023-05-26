@@ -58,7 +58,9 @@ public class admin  extends ogretmenUser{
         st = con.createStatement();
         rs = st.executeQuery("SELECT * FROM ogrencitablosu");
         while(rs.next()){
-            obj = new ogrenciUser(rs.getInt("id"),rs.getInt("ozurlu"), rs.getInt("ozursuz"), rs.getString("adSoyad"), rs.getString("sinif"), rs.getString("sube"), rs.getString("sifre"));
+            obj = new ogrenciUser(rs.getInt("id"),rs.getInt("ozurlu"), rs.getInt("ozursuz"), rs.getString("adSoyad"), rs.getString("sinif"), rs.getString("sube"), rs.getString("sifre"),
+            rs.getInt("turk1"),rs.getInt("turk2"),rs.getInt("mat1"),rs.getInt("mat2"),rs.getInt("fen1"),rs.getInt("fen2"),rs.getInt("sos1"),rs.getInt("sos2")
+            ,rs.getInt("ing1"),rs.getInt("ing2"));
             list.add(obj);
         }
         }catch(SQLException e){
@@ -66,6 +68,7 @@ public class admin  extends ogretmenUser{
         }
         return list;
     }
+
     
     public boolean updateOgrc(String adSoyad, String sinif, String sube, int ozurlu, int ozursuz){
         String query = "UPDATE ogrencitablosu SET adSoyad = ?, sinif = ?, sube = ?, ozurlu = ?, ozursuz = ? WHERE id = ?";
