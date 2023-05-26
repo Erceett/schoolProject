@@ -1,6 +1,18 @@
 package Model;
 
+import java.sql.*;
+import collegeinfo.Helper.*;
+
+
 public class ogrenciUser {
+    
+    private dbConnection conn = new dbConnection();
+    Connection con = conn.connectDb();
+    Statement st = null;
+    ResultSet rs = null;
+    PreparedStatement prepareStatement = null;
+    
+    
     private int id, ozurlu, ozursuz, turk1, turk2, mat1, mat2, fen1, fen2, sos1, sos2, ing1, ing2;
     private String adSoyad, sinif, sube,  sifre;
     
@@ -129,4 +141,39 @@ public class ogrenciUser {
     public int getIng2() {
         return ing2;
     }
+    
+    public boolean updateMat(int id, int not1, int not2) throws SQLException{
+        String query = "UPDATE ogrencitablosu SET mat1 = ?, mat2 = ? WHERE id = ?";
+        boolean key = false;
+        try{
+            st = con.createStatement();
+            prepareStatement = con.prepareStatement(query);
+            prepareStatement.setInt(1,not1);
+            prepareStatement.setInt(2,not2);
+            prepareStatement.setInt(3, id);
+            prepareStatement.executeUpdate();
+            key = true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
+    public boolean updateTurkce(int id, int not1, int not2) throws SQLException{
+        String query = "UPDATE ogrencitablosu SET turk1 = ?, turk2 = ? WHERE id = ?";
+        boolean key = false;
+        try{
+            st = con.createStatement();
+            prepareStatement = con.prepareStatement(query);
+            prepareStatement.setInt(1,not1);
+            prepareStatement.setInt(2,not2);
+            prepareStatement.setInt(3, id);
+            prepareStatement.executeUpdate();
+            key = true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
 }
