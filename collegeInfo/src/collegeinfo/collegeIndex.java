@@ -242,8 +242,8 @@ public class collegeIndex extends javax.swing.JFrame {
                         adminPanel frame = new adminPanel();
                         frame.setVisible(true);
                         frame.setSize(825,435);
-                        admin_ad.setText(null);
-                        admin_password.setText(null);
+                        //admin_ad.setText(null);
+                        //admin_password.setText(null);
                         break;
                     }
                     else{

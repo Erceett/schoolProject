@@ -268,11 +268,11 @@ public class ogrenci extends javax.swing.JFrame {
                                         .addGap(180, 180, 180)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(belge, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                            .addComponent(belge, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,7 +355,7 @@ public class ogrenci extends javax.swing.JFrame {
             String ozrl = Integer.toString( getOgrcList(selectedId).get(0).getOzurlu());
             String ozrsz = Integer.toString( getOgrcList(selectedId).get(0).getOzursuz());
             
-            float genelOrt = (ortTurk + ortMat + ortFen + ortSos + ortIng)/5;
+            float genelOrt = ((ortTurk/2) + (ortMat/2) + (ortFen/2) + (ortSos/2) + (ortIng/2))/5;
             String ortTurkce = Float.toString(ortTurk/2);
             String ortMatematik = Float.toString(ortMat/2);
             String ortFenB = Float.toString(ortFen/2);
@@ -369,20 +369,23 @@ public class ogrenci extends javax.swing.JFrame {
             labelIng.setText(ortIngl);
             
             labelOzrl.setText(ozrl);
-            labelOzrsz.setText(ozrsz); // belge durumuna bak
-            
-            
+            labelOzrsz.setText(ozrsz); 
+
             if (ortTurk/2 < 45 || ortMat/2 < 45 ||ortFen/2 < 45 ||ortSos/2 < 45 || ortIng/2 < 45 || getOgrcList(selectedId).get(0).getOzursuz() > 20) {
-                belge.setText("Sınıfta Kaldınız");
+                belge.setText("Ortalamanız = " + genelOrt +"Sınıfta Kaldınız");
+                System.out.println("sınıfta kaldınız");
             }
             else if(genelOrt<70){
-                belge.setText("Belge Kazanamadınız");
+                belge.setText("Ortalamanız = " + genelOrt +"Belge Kazanamadınız");
+                System.out.println("belge kazanamadınız");
             }
             else if(genelOrt<85 && getOgrcList(selectedId).get(0).getOzursuz() < 5){
-                belge.setText("Teşekkür Belgesi Almaya Hak Kazandınız");
+                belge.setText("Ortalamanız = " + genelOrt +"Teşekkür Belgesi Almaya Hak Kazandınız");
+                System.out.println("teşekkür");
             }
             else if(genelOrt<100 && getOgrcList(selectedId).get(0).getOzursuz()<5){
-                belge.setText("Takdir Belgesi Almaya Hak Kazandınız");
+                belge.setText("Ortalamanız = " + genelOrt +"Takdir Belgesi Almaya Hak Kazandınız");
+                System.out.println("takdir");
             }
                 
         } catch (SQLException ex) {
