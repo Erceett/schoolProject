@@ -38,7 +38,8 @@ public class ogretmen extends javax.swing.JFrame {
     String selectedSnf = null;
     String selectedSb = null;
     
-    String brans = collegeIndex.brans;
+    private String brans = collegeIndex.brans;
+    private int brn = 0;
     
     
 
@@ -68,8 +69,7 @@ public class ogretmen extends javax.swing.JFrame {
 
         jTable1.getModel().addTableModelListener(new TableModelListener(){
             @Override
-            switch(brans){
-                case "matematik":
+                    
                     public void tableChanged(TableModelEvent e){
                 if (e.getType() == TableModelEvent.UPDATE) {
                     int selectedID = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
@@ -79,34 +79,26 @@ public class ogretmen extends javax.swing.JFrame {
                     
                     ogrenciUser user = new ogrenciUser();
                     try {
-                        user.updateMat(selectedID, selectedNot1,selectedNot2);
+                        switch(brans){
+                            case "matematik":
+                                user.updateMat(selectedID, selectedNot1,selectedNot2);
+                                break;
+                            case "turkce":
+                                user.updateTurkce(selectedID, selectedNot1, selectedNot2);
+                                break;
+                            case "fen":
+                                user.updateFen(selectedID, selectedNot1, selectedNot2);
+                                break;
+                            case "sosyal":
+                                user.updateSosyal(selectedID, selectedNot1, selectedNot2);
+                                break;
+                            case "ingilizce":
+                                user.updateIng(selectedID, selectedNot1, selectedNot2);
+                                break;
+                        } 
                     } catch (SQLException ex) {  
                     }
                 }
-            }
-                    break;
-                case "turkce":
-                public void tableChanged(TableModelEvent e){
-                if (e.getType() == TableModelEvent.UPDATE) {
-                    int selectedID = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-                    String selectedAd = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
-                    int selectedNot1 = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
-                    int selectedNot2 = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
-                    
-                    ogrenciUser user = new ogrenciUser();
-                    try {
-                        user.updateTurkce(selectedID, selectedNot1,selectedNot2);
-                    } catch (SQLException ex) {  
-                    }
-                }
-            }
-                    break;
-                case "fen":
-                    break;
-                case "sosyal":
-                    break;
-                case "ingilizce":
-                    break;
             }
         });
     }
@@ -269,6 +261,7 @@ public class ogretmen extends javax.swing.JFrame {
         
         switch(brans){
             case "matematik":
+                brn = 0;
                 for (int i = 0; i < 2; i++) 
                 {
                     try {
@@ -290,6 +283,7 @@ public class ogretmen extends javax.swing.JFrame {
                 }
                 break;
             case "turkce":
+                brn = 1;
                 for (int i = 0; i < 2; i++) 
                 {
                     try {
@@ -297,8 +291,8 @@ public class ogretmen extends javax.swing.JFrame {
                             for (int k = 0; k < getOgrcList(selectedSnf, selectedSb).size(); k++) {
                                 ogrcData[0] = getOgrcList(selectedSnf, selectedSb).get(k).getId();
                                 ogrcData[1] = getOgrcList(selectedSnf, selectedSb).get(k).getadSoyad();
-                                ogrcData[2] = getOgrcList(selectedSnf, selectedSb).get(k).getTur1();
-                                ogrcData[3] = getOgrcList(selectedSnf, selectedSb).get(k).getTur2();
+                                ogrcData[2] = getOgrcList(selectedSnf, selectedSb).get(k).getTurk1();
+                                ogrcData[3] = getOgrcList(selectedSnf, selectedSb).get(k).getTurk2();
                                 ogrcModel.addRow(ogrcData);
                             }
                             break;
@@ -310,6 +304,7 @@ public class ogretmen extends javax.swing.JFrame {
                 }
                 break;
             case "fen":
+                brn = 2;
                 for (int i = 0; i < 2; i++) 
                 {
                     try {
@@ -330,6 +325,7 @@ public class ogretmen extends javax.swing.JFrame {
                 }
                 break;
             case "sosyal":
+                brn = 3;
                 for (int i = 0; i < 2; i++) 
                 {
                     try {
@@ -350,6 +346,7 @@ public class ogretmen extends javax.swing.JFrame {
                 }
                 break;
             case "ingilizce":
+                brn = 4;
                 for (int i = 0; i < 2; i++) 
                 {
                     try {

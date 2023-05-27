@@ -15,6 +15,8 @@ public class collegeIndex extends javax.swing.JFrame {
     public static int adminId = 0;
     public static int ogretmenId = 0;
     public static String brans = null;
+    public static String ogrcName = null;
+    public static int ogrenciId = 0;
     
     public collegeIndex() {
         initComponents();
@@ -273,6 +275,8 @@ public class collegeIndex extends javax.swing.JFrame {
                 ResultSet rs = st.executeQuery("SELECT * FROM ogrencitablosu");
                 while(rs.next()){
                     if (id == rs.getInt("id") && ogrcPassword.getText().equals(rs.getString("sifre"))) {
+                        ogrcName = rs.getString("adSoyad");
+                        ogrenciId = rs.getInt("id");
                         isLogIn = 1;
                         ogrenci frame = new ogrenci();
                         frame.setVisible(true);

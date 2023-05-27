@@ -176,4 +176,54 @@ public class ogrenciUser {
         return true;
     }
     
+    public boolean updateFen(int id, int not1, int not2) throws SQLException{
+        String query = "UPDATE ogrencitablosu SET fen1 = ?, fen2 = ? WHERE id = ?";
+        boolean key = false;
+        try{
+            st = con.createStatement();
+            prepareStatement = con.prepareStatement(query);
+            prepareStatement.setInt(1,not1);
+            prepareStatement.setInt(2,not2);
+            prepareStatement.setInt(3, id);
+            prepareStatement.executeUpdate();
+            key = true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
+    public boolean updateSosyal(int id, int not1, int not2) throws SQLException{
+        String query = "UPDATE ogrencitablosu SET sos1 = ?, sos2 = ? WHERE id = ?";
+        boolean key = false;
+        try{
+            st = con.createStatement();
+            prepareStatement = con.prepareStatement(query);
+            prepareStatement.setInt(1,not1);
+            prepareStatement.setInt(2,not2);
+            prepareStatement.setInt(3, id);
+            prepareStatement.executeUpdate();
+            key = true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
+    public boolean updateIng(int id, int not1, int not2) throws SQLException{
+        String query = "UPDATE ogrencitablosu SET ing1 = ?, ing2 = ? WHERE id = ?";
+        boolean key = false;
+        try{
+            st = con.createStatement();
+            prepareStatement = con.prepareStatement(query);
+            prepareStatement.setInt(1,not1);
+            prepareStatement.setInt(2,not2);
+            prepareStatement.setInt(3, id);
+            prepareStatement.executeUpdate();
+            key = true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return true;
+    }
 }
