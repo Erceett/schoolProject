@@ -22,7 +22,7 @@ public class adminPanel extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         ogrcList1 = new javax.swing.JButton();
         yılSonu = new javax.swing.JButton();
-        ogrcList = new javax.swing.JButton();
+        ogrcList2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(825, 287));
@@ -60,11 +60,16 @@ public class adminPanel extends javax.swing.JFrame {
 
         yılSonu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         yılSonu.setText("YIL SONU");
-
-        ogrcList.setText("ÖĞRENCİ İŞLEMLERİ");
-        ogrcList.addActionListener(new java.awt.event.ActionListener() {
+        yılSonu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ogrcListActionPerformed(evt);
+                yılSonuActionPerformed(evt);
+            }
+        });
+
+        ogrcList2.setText("ÖĞRENCİ İŞLEMLERİ");
+        ogrcList2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ogrcList2ActionPerformed(evt);
             }
         });
 
@@ -82,9 +87,9 @@ public class adminPanel extends javax.swing.JFrame {
                     .addComponent(ogrtList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(subelendirme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ogrcList1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                    .addComponent(ogrcList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ogrcList1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ogrcList2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(322, 322, 322))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +109,7 @@ public class adminPanel extends javax.swing.JFrame {
                 .addGap(98, 98, 98)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ogrtList)
-                    .addComponent(ogrcList))
+                    .addComponent(ogrcList2))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(subelendirme)
@@ -159,17 +164,19 @@ public class adminPanel extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ogrcList1ActionPerformed
 
-    private void ogrcListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrcListActionPerformed
-        adminOgrc frame;
+    private void yılSonuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yılSonuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yılSonuActionPerformed
+
+    private void ogrcList2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrcList2ActionPerformed
         try {
-            frame = new adminOgrc();
+            adminOgrc frame = new adminOgrc();
             frame.setVisible(true);
-            frame.setSize(825, 435);
+            frame.setSize(825,435);
         } catch (SQLException ex) {
-            System.out.println(ex);
+            Logger.getLogger(adminPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }//GEN-LAST:event_ogrcListActionPerformed
+    }//GEN-LAST:event_ogrcList2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,8 +216,8 @@ public class adminPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton ogrcList;
     private javax.swing.JButton ogrcList1;
+    private javax.swing.JButton ogrcList2;
     private javax.swing.JButton ogrtList;
     private javax.swing.JButton subelendirme;
     private javax.swing.JButton yılSonu;

@@ -7,7 +7,7 @@ import collegeinfo.Helper.*;
 public class ogrenciUser {
     
     private dbConnection conn = new dbConnection();
-    Connection con = conn.connectDb();
+    Connection con3 = conn.connectDb();
     Statement st = null;
     ResultSet rs = null;
     PreparedStatement prepareStatement = null;
@@ -146,8 +146,8 @@ public class ogrenciUser {
         String query = "UPDATE ogrencitablosu SET mat1 = ?, mat2 = ? WHERE id = ?";
         boolean key = false;
         try{
-            st = con.createStatement();
-            prepareStatement = con.prepareStatement(query);
+            st = con3.createStatement();
+            prepareStatement = con3.prepareStatement(query);
             prepareStatement.setInt(1,not1);
             prepareStatement.setInt(2,not2);
             prepareStatement.setInt(3, id);
@@ -163,8 +163,8 @@ public class ogrenciUser {
         String query = "UPDATE ogrencitablosu SET turk1 = ?, turk2 = ? WHERE id = ?";
         boolean key = false;
         try{
-            st = con.createStatement();
-            prepareStatement = con.prepareStatement(query);
+            st = con3.createStatement();
+            prepareStatement = con3.prepareStatement(query);
             prepareStatement.setInt(1,not1);
             prepareStatement.setInt(2,not2);
             prepareStatement.setInt(3, id);
@@ -180,8 +180,8 @@ public class ogrenciUser {
         String query = "UPDATE ogrencitablosu SET fen1 = ?, fen2 = ? WHERE id = ?";
         boolean key = false;
         try{
-            st = con.createStatement();
-            prepareStatement = con.prepareStatement(query);
+            st = con3.createStatement();
+            prepareStatement = con3.prepareStatement(query);
             prepareStatement.setInt(1,not1);
             prepareStatement.setInt(2,not2);
             prepareStatement.setInt(3, id);
@@ -197,8 +197,8 @@ public class ogrenciUser {
         String query = "UPDATE ogrencitablosu SET sos1 = ?, sos2 = ? WHERE id = ?";
         boolean key = false;
         try{
-            st = con.createStatement();
-            prepareStatement = con.prepareStatement(query);
+            st = con3.createStatement();
+            prepareStatement = con3.prepareStatement(query);
             prepareStatement.setInt(1,not1);
             prepareStatement.setInt(2,not2);
             prepareStatement.setInt(3, id);
@@ -214,8 +214,8 @@ public class ogrenciUser {
         String query = "UPDATE ogrencitablosu SET ing1 = ?, ing2 = ? WHERE id = ?";
         boolean key = false;
         try{
-            st = con.createStatement();
-            prepareStatement = con.prepareStatement(query);
+            st = con3.createStatement();
+            prepareStatement = con3.prepareStatement(query);
             prepareStatement.setInt(1,not1);
             prepareStatement.setInt(2,not2);
             prepareStatement.setInt(3, id);

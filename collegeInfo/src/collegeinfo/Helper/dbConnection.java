@@ -5,20 +5,18 @@ import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 
 public class dbConnection {
+      
+    private static Connection c;
     
-    Connection c = null;
-    
-    public dbConnection(){
-    }
-    
-    public Connection connectDb(){
+    public static Connection connectDb(){
         try{
         Class.forName("com.mysql.jdbc.Driver");
-        this.c = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegedb","root","");
+        c = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegedb","root","");
         //JOptionPane.showMessageDialog(null, "baglanti basarili");
         return c;
+        
         }catch(Exception e){
-        JOptionPane.showMessageDialog(null, "baglanti basarisiz");
+        //JOptionPane.showMessageDialog(null, "baglanti basarisiz");
         return null;
         }
     }

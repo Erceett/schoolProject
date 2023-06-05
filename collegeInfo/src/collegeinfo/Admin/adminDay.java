@@ -381,7 +381,10 @@ public class adminDay extends javax.swing.JFrame {
         int ozur = Integer.parseInt(ozr);
         int ozursz = Integer.parseInt(ozrsz);
         admin admin = new admin();
-        admin.updateDevam(ozur, ozursz, num); 
+        try { 
+            admin.updateDevam(ozur, ozursz, num);
+        } catch (SQLException ex) {
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {
