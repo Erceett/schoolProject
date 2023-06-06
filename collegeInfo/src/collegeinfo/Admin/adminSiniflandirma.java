@@ -18,6 +18,8 @@ public class adminSiniflandirma extends javax.swing.JFrame {
     
     PreparedStatement prepareStatement = null;
     
+    int key = 0;
+    
     public adminSiniflandirma() throws SQLException {
         admin admin = new admin();
         ogrtModel = new DefaultTableModel();
@@ -58,6 +60,8 @@ public class adminSiniflandirma extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable(ogrtModel);
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -119,6 +123,13 @@ public class adminSiniflandirma extends javax.swing.JFrame {
 
         jLabel1.setText("(Her öğretmene 2 şube verilecek)");
 
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("hata oluşmaması için şubelendirme ");
+        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel5.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        jLabel6.setText("yapmadan önce listeye bakınız");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -126,33 +137,34 @@ public class adminSiniflandirma extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(comboSinif, 0, 91, Short.MAX_VALUE)
-                                            .addComponent(num)
-                                            .addComponent(comboSube, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(65, 65, 65)
-                                        .addComponent(jButton2)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 26, Short.MAX_VALUE)
-                                .addComponent(jButton3)))
-                        .addGap(18, 18, 18))
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboSinif, 0, 91, Short.MAX_VALUE)
+                            .addComponent(num)
+                            .addComponent(comboSube, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel6))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton3)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -176,12 +188,15 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                             .addComponent(comboSube, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)
-                        .addGap(51, 51, 51))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(0, 55, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Şube Yetkilendirme", jPanel1);
@@ -219,6 +234,7 @@ public class adminSiniflandirma extends javax.swing.JFrame {
         int sb = comboSube.getSelectedIndex();
         String str = num.getText();
         int ogrtID = Integer.parseInt(str);
+        int prevID = 0;
         String name = null;
         try{
             Connection con = conn.connectDb();
@@ -230,10 +246,28 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                     }
                 }
         }catch(SQLException ex){}
+        
         String sinif = null;
         String sube = null;
+        int count = 0;
         
-        switch(snf){
+        Connection con1 = conn.connectDb();
+        String sql = "SELECT COUNT(*) FROM subeler WHERE id = ?";
+        PreparedStatement statement;
+        try {
+            statement = con1.prepareStatement(sql);statement.setInt(1, ogrtID);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                count = count + 1;
+            }
+            System.out.println(count);
+            if (count>=2) 
+            {
+                JOptionPane.showMessageDialog(null,"hata");
+            }
+            else
+            {
+                switch(snf){
             case 0:
                 sinif = "5";
                 switch(sb){
@@ -241,13 +275,15 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                         sube = "A";
                         try {
                             Connection con = conn.connectDb();
-                            String sql = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
-                            PreparedStatement stmt = con.prepareStatement(sql);
+                            String sql1 = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
+                            PreparedStatement stmt = con.prepareStatement(sql1);
                             stmt.setInt(1, ogrtID);
                             stmt.setString(2, name);
                             stmt.setString(3, sinif); 
                             stmt.setString(4, sube);
                             stmt.executeUpdate(); 
+                            prevID = ogrtID;
+                            key++;
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
@@ -256,13 +292,15 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                         sube = "B";
                         try {
                             Connection con = conn.connectDb();
-                            String sql = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
-                            PreparedStatement stmt = con.prepareStatement(sql);
+                            String sql1 = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
+                            PreparedStatement stmt = con.prepareStatement(sql1);
                             stmt.setInt(1, ogrtID);
                             stmt.setString(2, name);
                             stmt.setString(3, sinif); 
                             stmt.setString(4, sube);       
                             stmt.executeUpdate(); 
+                            prevID = ogrtID;
+                            key++;
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
@@ -276,13 +314,14 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                         sube = "A";
                         try {
                             Connection con = conn.connectDb();
-                            String sql = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
-                            PreparedStatement stmt = con.prepareStatement(sql);
+                            String sql1 = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
+                            PreparedStatement stmt = con.prepareStatement(sql1);
                             stmt.setInt(1, ogrtID);
                             stmt.setString(2, name);
                             stmt.setString(3, sinif); 
                             stmt.setString(4, sube);       
                             stmt.executeUpdate(); 
+                            prevID = ogrtID;
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
@@ -291,8 +330,8 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                         sube = "B";
                         try {
                             Connection con = conn.connectDb();
-                            String sql = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
-                            PreparedStatement stmt = con.prepareStatement(sql);
+                            String sql1 = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
+                            PreparedStatement stmt = con.prepareStatement(sql1);
                             stmt.setInt(1, ogrtID);
                             stmt.setString(2, name);
                             stmt.setString(3, sinif); 
@@ -311,8 +350,8 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                         sube = "A";
                         try {
                             Connection con = conn.connectDb();
-                            String sql = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
-                            PreparedStatement stmt = con.prepareStatement(sql);
+                            String sql1 = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
+                            PreparedStatement stmt = con.prepareStatement(sql1);
                             stmt.setInt(1, ogrtID);
                             stmt.setString(2, name);
                             stmt.setString(3, sinif); 
@@ -326,8 +365,8 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                         sube = "B";
                         try {
                             Connection con = conn.connectDb();
-                            String sql = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
-                            PreparedStatement stmt = con.prepareStatement(sql);
+                            String sql1 = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
+                            PreparedStatement stmt = con.prepareStatement(sql1);
                             stmt.setInt(1, ogrtID);
                             stmt.setString(2, name);
                             stmt.setString(3, sinif); 
@@ -346,8 +385,8 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                         sube = "A";
                         try {
                             Connection con = conn.connectDb();
-                            String sql = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
-                            PreparedStatement stmt = con.prepareStatement(sql);
+                            String sql1 = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
+                            PreparedStatement stmt = con.prepareStatement(sql1);
                             stmt.setInt(1, ogrtID);
                             stmt.setString(2, name);
                             stmt.setString(3, sinif); 
@@ -361,8 +400,8 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                         sube = "B";
                         try {
                             Connection con = conn.connectDb();
-                            String sql = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
-                            PreparedStatement stmt = con.prepareStatement(sql);
+                            String sql1 = "INSERT INTO subeler" + "(ogretmenID, adSoyad, sinif, sube) VALUES" + "(?,?,?,?)";
+                            PreparedStatement stmt = con.prepareStatement(sql1);
                             stmt.setInt(1, ogrtID);
                             stmt.setString(2, name);
                             stmt.setString(3, sinif); 
@@ -375,6 +414,10 @@ public class adminSiniflandirma extends javax.swing.JFrame {
                 }
                 break;
         }
+            }
+        } catch (SQLException ex) {}
+
+            
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -409,6 +452,8 @@ public class adminSiniflandirma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
