@@ -2,14 +2,54 @@ package collegeinfo.Admin;
 import Model.*;
 import collegeinfo.*;
 import collegeinfo.Admin.*;
+import collegeinfo.Helper.dbConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class adminPanel extends javax.swing.JFrame {
+    
+    Connection con = dbConnection.connectDb();
+    PreparedStatement prepareStatement = null;
+    ResultSet rs;
+    Statement st;
+    
+    String sinif = null;
 
     public adminPanel() {
         initComponents();
+    }
+    
+    private static void updateSinif(Connection con, String tablo, String yeniSinif, int id) throws SQLException
+    {
+        String sql = "UPDATE " + tablo + " SET sinif = ?, ozurlu = ?, ozursuz = ?, turk1 = ?, turk2 = ?, mat1 = ?, mat2 = ?, fen1 = ?, fen2 = ?, sos1 = ?, sos2 = ?, ing1 = ?, ing2 = ? WHERE id = ?";
+        PreparedStatement statement = con.prepareStatement(sql);
+        statement.setString(1, yeniSinif);
+        statement.setInt(2,0);
+        statement.setInt(3,0);
+        statement.setInt(4,0);
+        statement.setInt(5,0);
+        statement.setInt(6,0);
+        statement.setInt(7,0);
+        statement.setInt(8,0);
+        statement.setInt(9,0);
+        statement.setInt(10,0);
+        statement.setInt(11,0);
+        statement.setInt(12,0);
+        statement.setInt(13,0);
+        statement.setInt(14, id);
+        statement.executeUpdate();
+    }
+    
+    private static void deleteSinif(Connection con, String tabloAdi, int id) throws SQLException {
+        String sql = "DELETE FROM " + tabloAdi + " WHERE id = ?";
+        PreparedStatement statement = con.prepareStatement(sql);
+        statement.setInt(1, id);
+        statement.executeUpdate();
     }
 
     @SuppressWarnings("unchecked")
@@ -165,7 +205,37 @@ public class adminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_ogrcList1ActionPerformed
 
     private void yılSonuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yılSonuActionPerformed
-        // TODO add your handling code here:
+        try {
+            String sql = "SELECT * FROM ogrencitablosu";
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next())
+            {
+                int id = rs.getInt("id");
+                String sinif = rs.getString("sinif");
+                int a = Integer.parseInt(rs.getString("sinif")) + 1;
+                String yeniSinif = Integer.toString(a);
+                System.out.println(yeniSinif);
+                if (sinif.equals("8")) 
+                {
+                    deleteSinif(con, "ogrencitablosu", id);
+                }
+                else
+                updateSinif(con, "ogrencitablosu", yeniSinif, id);
+            }
+            
+            
+            
+            /*String query4 = "UPDATE ogrencitablosu SET sinif = '5' WHERE sinif = 4";
+            PreparedStatement stmt4 = con.prepareStatement(query4);
+            stmt4.executeUpdate();
+            String query5 = "UPDATE ogrencitablosu SET sinif = '6' WHERE sinif = '5'";
+            PreparedStatement stmt5 = con.prepareStatement(query5);
+            stmt5.executeUpdate();*/
+            
+            
+        } catch (SQLException ex) {
+        }
     }//GEN-LAST:event_yılSonuActionPerformed
 
     private void ogrcList2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogrcList2ActionPerformed

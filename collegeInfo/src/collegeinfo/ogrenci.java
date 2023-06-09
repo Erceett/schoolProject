@@ -379,11 +379,11 @@ public class ogrenci extends javax.swing.JFrame {
                 belge.setText("Ortalamanız = " + genelOrt +"Belge Kazanamadınız");
                 System.out.println("belge kazanamadınız");
             }
-            else if(genelOrt<85 && getOgrcList(selectedId).get(0).getOzursuz() < 5){
+            else if(genelOrt<85 && getOgrcList(selectedId).get(0).getOzursuz() <= 5){
                 belge.setText("Ortalamanız = " + genelOrt +"Teşekkür Belgesi Almaya Hak Kazandınız");
                 System.out.println("teşekkür");
             }
-            else if(genelOrt<100 && getOgrcList(selectedId).get(0).getOzursuz()<5){
+            else if(genelOrt<100 && getOgrcList(selectedId).get(0).getOzursuz() <= 5){
                 belge.setText("Ortalamanız = " + genelOrt +"Takdir Belgesi Almaya Hak Kazandınız");
                 System.out.println("takdir");
             }
